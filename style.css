@@ -1,0 +1,292 @@
+/* Importación de fuentes */
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Great+Vibes&family=Parisienne&display=swap');
+
+/* Estilos generales y reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Dancing Script', cursive;
+    position: relative;
+    overflow-x: hidden;
+    background: #fff5f0;
+}
+
+/* Animación mejorada de Aurora tipo amanecer */
+.aurora-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    overflow: hidden;
+    background: linear-gradient(135deg, #fff5f0, #ffe4e1);
+}
+
+.aurora-1, .aurora-2, .aurora-3 {
+    position: absolute;
+    width: 200%;
+    height: 200%;
+    top: -50%;
+    left: -50%;
+    animation: aurora-movement 15s infinite alternate;
+}
+
+.aurora-1 {
+    background: radial-gradient(circle at center,
+        rgba(255, 156, 89, 0.6) 0%,
+        rgba(255, 156, 89, 0) 50%);
+    animation-delay: 0s;
+}
+
+.aurora-2 {
+    background: radial-gradient(circle at center,
+        rgba(255, 121, 63, 0.6) 0%,
+        rgba(255, 121, 63, 0) 50%);
+    animation-delay: -5s;
+}
+
+.aurora-3 {
+    background: radial-gradient(circle at center,
+        rgba(255, 87, 51, 0.6) 0%,
+        rgba(255, 87, 51, 0) 50%);
+    animation-delay: -10s;
+}
+
+@keyframes aurora-movement {
+    0% {
+        transform: rotate(0deg) scale(1);
+    }
+    50% {
+        transform: rotate(180deg) scale(1.2);
+    }
+    100% {
+        transform: rotate(360deg) scale(1);
+    }
+}
+
+/* Estilos de la tarjeta principal */
+.card {
+    position: relative;
+    z-index: 2;
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    padding: 2rem;
+    width: 90%;
+    max-width: 500px;
+    box-shadow: 0 8px 32px rgba(255, 87, 51, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    margin: 20px;
+    transition: transform 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 40px rgba(255, 121, 63, 0.3);
+}
+
+/* Contenedor de media */
+.media-container {
+    width: 100%;
+    height: 200px;
+    margin-bottom: 2rem;
+    overflow: hidden;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.media-content {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+}
+
+/* Estilos de texto */
+.greeting {
+    font-family: 'Great Vibes', cursive;
+    color: #ff7f3f;
+    font-size: 2.2rem;
+    margin-bottom: 1rem;
+    text-align: center;
+    text-shadow: 2px 2px 4px rgba(255, 87, 51, 0.3);
+}
+
+.main-title {
+    font-family: 'Parisienne', cursive;
+    color: #ff5733;
+    font-size: 2.8rem;
+    margin-bottom: 1.5rem;
+    text-align: center;
+    text-shadow: 2px 2px 4px rgba(255, 87, 51, 0.3);
+}
+
+.description {
+    color: #333333;
+    text-align: center;
+    margin-bottom: 2rem;
+    line-height: 1.8;
+    font-size: 1.6rem;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+/* Contenedor de mensajes modificado */
+.mensaje-container {
+    min-height: 70px;
+    text-align: center;
+    margin: 1.5rem 0;
+    transition: opacity 0.3s ease;
+    font-size: 1.7rem;
+    color: #ff5733;
+    font-weight: bold;
+    text-shadow: 1px 1px 2px rgba(255, 87, 51, 0.2);
+    padding: 1rem;
+}
+
+/* Botón de descarga */
+.download-button {
+    display: block;
+    width: fit-content;
+    margin: 0 auto 2rem;
+    padding: 0.6rem 1.2rem;
+    background: linear-gradient(45deg, #ff7f3f, #ffb347);
+    color: white;
+    text-decoration: none;
+    border-radius: 20px;
+    transition: all 0.3s ease;
+    border: none;
+    cursor: pointer;
+    font-family: 'Dancing Script', cursive;
+    font-size: 1.1rem;
+    font-weight: bold;
+}
+
+.download-button:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 15px rgba(255, 87, 51, 0.6);
+}
+
+/* Contenedor de botones de respuesta */
+.response-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin-bottom: 1rem;
+}
+
+/* Estilos botón Sí modificado */
+.btn-si {
+    padding: 1rem 2rem;
+    font-size: 1.6rem;
+    border: none;
+    border-radius: 25px;
+    background: linear-gradient(45deg, #40e0d0, #7fffd4);
+    color: #333333;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    font-family: 'Dancing Script', cursive;
+    font-weight: bold;
+    box-shadow: 0 0 0 0 rgba(64, 224, 208, 0);
+}
+
+.btn-si:active {
+    box-shadow: 0 0 20px rgba(64, 224, 208, 0.8);
+}
+
+/* Estilos botón No */
+.btn-no {
+    padding: 1rem 2rem;
+    font-size: 1.6rem;
+    border: none;
+    border-radius: 25px;
+    background: linear-gradient(45deg, #ff8da1, #ffc2cd);
+    color: #333333;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+    font-family: 'Dancing Script', cursive;
+    font-weight: bold;
+    transform-origin: center;
+    will-change: transform;
+}
+
+.btn-no.shrunk {
+    transform: scale(0.2);
+    pointer-events: none;
+}
+
+/* Media Queries para responsividad */
+@media (max-width: 768px) {
+    .card {
+        width: 95%;
+        padding: 1.5rem;
+    }
+
+    .main-title {
+        font-size: 2.4rem;
+    }
+
+    .greeting {
+        font-size: 2rem;
+    }
+
+    .description {
+        font-size: 1.4rem;
+    }
+
+    .mensaje-container {
+        font-size: 1.5rem;
+    }
+
+    .btn-si, .btn-no {
+        padding: 0.8rem 1.5rem;
+        font-size: 1.4rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .card {
+        padding: 1rem;
+    }
+
+    .main-title {
+        font-size: 2rem;
+    }
+
+    .greeting {
+        font-size: 1.7rem;
+    }
+
+    .description {
+        font-size: 1.3rem;
+    }
+
+    .mensaje-container {
+        font-size: 1.4rem;
+    }
+
+    .media-container {
+        height: 150px;
+    }
+
+    .response-buttons {
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+    }
+
+    .btn-si, .btn-no {
+        width: 80%;
+        font-size: 1.3rem;
+    }
+}
