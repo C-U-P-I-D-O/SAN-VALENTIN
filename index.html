@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Propuesta de San Valentín</title>
+    <link rel="stylesheet" href="ame.css">
+</head>
+<body>
+    <!-- Contenedor principal con fondo de aurora boreal -->
+    <div class="aurora-background">
+        <div class="aurora-1"></div>
+        <div class="aurora-2"></div>
+        <div class="aurora-3"></div>
+    </div>
+    
+    <!-- Tarjeta principal -->
+    <div class="card">
+        <!-- Sección de media (video/imagen/gif) -->
+        <div class="media-container">
+            <!-- Placeholder para media - ajusta el src según necesites -->
+            <img src="https://i.postimg.cc/c1rkxdT5/ec463fa590f614f48f270222cfb69d3aac98b637-hq.gif" alt="Imagen especial" class="media-content">
+        </div>
+
+        <!-- Contenido principal -->
+        <div class="content">
+            <h3 class="greeting">Hola Angie</h3>
+            <h1 class="main-title">¿Quieres ser mi San Valentín?</h1>
+            <p class="description">
+                Me encantaría compartir este día tan especial contigo...
+            </p>
+
+            <!-- Contenedor para mensajes de insistencia - Ahora arriba de los botones -->
+            <div id="mensaje-actual" class="mensaje-container">
+                <!-- Aquí aparecerá un mensaje a la vez -->
+            </div>
+
+            <!-- Botón para descargar carta - Ahora más pequeño -->
+            <a href="carta.pdf" download class="download-button">
+                Ver carta ❤️
+            </a>
+
+            <!-- Contenedor de botones de respuesta -->
+            <div class="response-buttons">
+                <button id="btnSi" class="btn-si" onclick="aceptar()">Sí</button>
+                <button id="btnNo" class="btn-no" onclick="rechazar()">No</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let contadorNo = 0;
+        const mensajes = [
+            "¡Por favor, piénsalo mejor! 🥺",
+            "¡Nos vamos a divertir! 😊",
+            "Soy un buen amigo 🤗",
+            "La pasaremos genial 🎉",
+            "¿Estás segura? 🥲",
+            "¡Dame una oportunidad! 💫",
+            "¡Será increíble! ✨",
+            "¡No te arrepentirás! 🌟",
+            "¡Vamos! 🎈",
+            "¡Anímate! 🌺",
+            "¡Será especial! 🎭",
+            "¡Por favor! 🎪",
+            "¡Una oportunidad! 🎨",
+            "¡Última chance! 💝",
+            "¡Piénsalo bien! 🎭"
+        ];
+
+        function rechazar() {
+            const btnNo = document.getElementById('btnNo');
+            const mensajeContainer = document.getElementById('mensaje-actual');
+            
+            // Incrementar contador
+            contadorNo++;
+            
+            // Reducir tamaño del botón
+            const escala = 1 - (contadorNo * 0.06);
+            btnNo.style.transform = `scale(${escala})`;
+            
+            // Mostrar nuevo mensaje (uno a la vez)
+            if (contadorNo <= mensajes.length) {
+                // Primero ocultamos el mensaje actual
+                mensajeContainer.style.opacity = '0';
+                
+                setTimeout(() => {
+                    // Actualizamos el mensaje
+                    mensajeContainer.textContent = mensajes[contadorNo - 1];
+                    // Mostramos el nuevo mensaje
+                    mensajeContainer.style.opacity = '1';
+                }, 300);
+            }
+        }
+
+        function aceptar() {
+            // Animación de celebración
+            const btnSi = document.getElementById('btnSi');
+            btnSi.classList.add('celebracion');
+            
+            // Efecto de confeti o brillos (opcional)
+            crearCelebracion();
+            
+            // Redireccionar a WhatsApp después de la animación
+            setTimeout(() => {
+                window.location.href = "https://wa.me/+59176779514";
+            }, 1500);
+        }
+
+        function crearCelebracion() {
+            // Crear elementos de celebración (confeti/brillos)
+            for (let i = 0; i < 50; i++) {
+                const confeti = document.createElement('div');
+                confeti.className = 'confeti';
+                confeti.style.left = Math.random() * 100 + 'vw';
+                confeti.style.animationDelay = Math.random() * 2 + 's';
+                document.body.appendChild(confeti);
+                
+                // Remover después de la animación
+                setTimeout(() => confeti.remove(), 2000);
+            }
+        }
+    </script>
+</body>
+</html>
